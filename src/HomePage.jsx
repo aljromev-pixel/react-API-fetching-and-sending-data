@@ -1,7 +1,14 @@
 import React, { useState } from "react";
+import ProductCard from "./Components/ProductCard";
 
 function HomePage({ search = "" }) {
   const [count, setCount] = useState(0);
+
+  const products = [
+    { id: 1, name: "Wireless Mouse", price: 599 },
+    { id: 2, name: "Mechanical Keyboard", price: 2499 },
+    { id: 3, name: "USB-C Hub", price: 899 },
+  ];
 
   const features = [
     {
@@ -110,6 +117,26 @@ function HomePage({ search = "" }) {
             </div>
 
           )}
+
+        </div>
+
+      </section>
+
+            <section className="products">
+
+        <div className="section-title">
+          <p>OUR PRODUCTS</p>
+          <h2>Product Catalog</h2>
+        </div>
+
+        <div className="product-container">
+
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+            />
+          ))}
 
         </div>
 
