@@ -5,9 +5,9 @@ function HomePage({ search = "" }) {
   const [count, setCount] = useState(0);
 
   const products = [
-    { id: 1, name: "Wireless Mouse", price: 599 },
-    { id: 2, name: "Mechanical Keyboard", price: 2499 },
-    { id: 3, name: "USB-C Hub", price: 899 },
+    { id: 1, name: "React Wireless Mouse", price: 1299 },
+    { id: 2, name: "React 60HE Mechanical Keyboard", price: 1599 },
+    { id: 3, name: "Ethernet Cable Cat6 ver", price: 549 },
   ];
 
   const features = [
