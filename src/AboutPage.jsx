@@ -2,14 +2,18 @@ import React from "react";
 
 function AboutPage() {
   return (
-    <div>
-      <h1>About Us</h1>
+    <main>
+       <section className="about-hero">
+        <p className="small-title">ABOUT THE PROJECT</p>
 
-      <p>
-        This project demonstrates the use of React components,
-        React Router, and React state.
-      </p>
-    </div>
+        <h1>About Us</h1>
+
+        <p>
+          Learning React by building a simple and functional
+          web application.
+        </p>
+      </section>
+    </main>
   );
 }
 
