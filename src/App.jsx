@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import logo from "./logo.svg";
 
 import HomePage from "./HomePage";
 import AboutPage from "./AboutPage";
@@ -14,8 +15,13 @@ function App() {
 
         <header className="navbar">
 
-          <Link to="/" className="logo">
-            ⚛️ CCS-112
+          <Link to="/" className="logo-link">
+            <img
+              src={logo}
+              alt="React Logo"
+              className="react-logo"
+            />
+            <span>CCS-112</span>
           </Link>
 
           <nav className="nav-links">
