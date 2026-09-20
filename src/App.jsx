@@ -6,6 +6,8 @@ import AboutPage from "./Aboutpage";
 import Footer from "./Footer";
 
 function App() {
+    const [search, setSearch] = useState("");
+
   return (
     <BrowserRouter>
       <div className="app">
@@ -16,6 +18,19 @@ function App() {
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
           </nav>
+
+          <div className="search-box">
+            <input
+              type="text"
+              placeholder="Search..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+
+            <button onClick={() => setSearch("")}>
+              {search ? "Clear" : "Search"}
+            </button>
+          </div>
         </header>
 
         <Routes>
