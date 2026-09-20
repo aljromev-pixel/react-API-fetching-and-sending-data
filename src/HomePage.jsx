@@ -1,9 +1,15 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import ProductCard from "./Components/ProductCard";
+import { products } from "./data/products";
 
 export default function HomePage() {
-  const [products, setProducts] = useState([]); const [loading, setLoading] = useState(true); const [error, setError] = useState(""); const [search, setSearch] = useState("");
-  useEffect(() => { const controller = new AbortController(); async function loadProducts() { try { const response = await fetch("https://fakestoreapi.com/products?limit=6", { signal: controller.signal }); if (!response.ok) throw new Error(); setProducts(await response.json()); } catch (requestError) { if (requestError.name !== "AbortError") setError("Failed to load products. Please try again later."); } finally { if (!controller.signal.aborted) setLoading(false); } } loadProducts(); return () => controller.abort(); }, []);
-  const filteredProducts = useMemo(() => products.filter((product) => product.title.toLowerCase().includes(search.toLowerCase())), [products, search]);
-  return <><section className="catalog-hero" aria-labelledby="catalog-title"><div className="content-wrap hero-content"><p className="eyebrow">CCS-112 React Store</p><h1 id="catalog-title">Everyday tech, clearly presented.</h1><p>Browse a small catalog powered by live data, reusable components, and React state.</p></div></section><section className="catalog-section content-wrap" aria-labelledby="products-title"><div className="section-heading"><div><p className="eyebrow">Product catalog</p><h2 id="products-title">Find your next essential</h2></div><label className="search-box"><span className="sr-only">Search products</span><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search products" /></label></div>{loading && <p className="status-message">Loading products...</p>}{error && <p className="status-message status-error">{error}</p>}{!loading && !error && <div className="product-grid">{filteredProducts.length ? filteredProducts.map((product) => <ProductCard key={product.id} product={product} />) : <p className="status-message">No products match your search.</p>}</div>}</section></>;
+  const [search, setSearch] = useState("");
+  const filteredProducts = useMemo(() => products.filter((product) => `${product.title} ${product.category}`.toLowerCase().includes(search.toLowerCase())), [search]);
+
+  return (
+    <>
+      <section className="catalog-hero" aria-labelledby="catalog-title"><div className="content-wrap hero-content"><p className="eyebrow">CCS-112 · Gaming gear</p><h1 id="catalog-title">Build your setup<br /><span>for the next level.</span></h1><p>Curated performance gear for focused workdays, late-night queues, and every game in between.</p><a className="hero-button" href="#products">Browse the collection <span aria-hidden="true">↓</span></a></div></section>
+      <section className="catalog-section content-wrap" id="products" aria-labelledby="products-title"><div className="section-heading"><div><p className="eyebrow">Featured drops</p><h2 id="products-title">Gear worth playing with.</h2></div><label className="search-box"><span className="sr-only">Search gaming products</span><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search gear" /></label></div><div className="product-grid">{filteredProducts.length ? filteredProducts.map((product) => <ProductCard key={product.id} product={product} />) : <p className="status-message">No gear matches that search.</p>}</div></section>
+    </>
+  );
 }

@@ -1,21 +1,10 @@
-import React from "react";
-
-function Footer() {
+export default function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-brand">
-          <h2>CCS-112</h2>
-          <p>React Application</p>
-        </div>
-
-        <div className="footer-info">
-          <p>Built with React</p>
-          <p>© 2026 CCS-112 React Application</p>
-        </div>
+      <div className="footer-content content-wrap">
+        <div><strong>CCS-112</strong><p>React Product Catalog</p></div>
+        <p>Built with React · © 2026</p>
       </div>
     </footer>
   );
 }
-
-export default Footer;
