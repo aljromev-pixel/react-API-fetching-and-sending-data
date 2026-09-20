@@ -2,7 +2,6 @@ import React from "react";
 import HomePage from "./HomePage";
 import AboutPage from "./AboutPage";
 import Footer from "./Footer";
-import "./index.css";
 
 function App() {
   return (
