@@ -4,9 +4,9 @@ function AboutPage() {
   return (
     <main>
        <section className="about-hero">
-        <p className="small-title">ABOUT THE PROJECT</p>
+        <p className="small-title">About this React App</p>
 
-        <h1>About Us</h1>
+        <h1>About my React Webpage</h1>
 
         <p>
           Learning React by building a simple and functional

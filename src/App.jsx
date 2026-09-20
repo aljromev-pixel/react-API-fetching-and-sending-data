@@ -34,7 +34,11 @@ function App() {
         </header>
 
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/"
+            element={<HomePage search={search} />}
+          />
+
           <Route path="/about" element={<AboutPage />} />
         </Routes>
 
