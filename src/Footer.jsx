@@ -6,12 +6,12 @@ function Footer() {
       <div className="footer-content">
         <div>
           <h2>CCS-112</h2>
-          <p>React Project</p>
+          <p>React Application</p>
         </div>
 
         <div className="footer-info">
           <p>Built with React</p>
-          <p>© 2026 CCS-112 React Project</p>
+          <p>© 2026 CCS-112 React Application</p>
         </div>
       </div>
     </footer>

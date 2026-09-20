@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function HomePage() {
+function HomePage({ search = "" }) {
   const [count, setCount] = useState(0);
 
   const features = [
@@ -32,9 +32,13 @@ function HomePage() {
 
   return (
     <main>
+
       <section className="hero">
         <div className="hero-content">
-          <p className="small-title">Welcome to my React Webpage</p>
+
+          <p className="small-title">
+            Welcome to my React Webpage
+          </p>
 
           <h1>
             CCS-112
@@ -48,14 +52,15 @@ function HomePage() {
           </p>
 
           <div className="hero-buttons">
-            <a href="#counter" className="primary-button">
-              Try Our App
+            <a href="#features" className="primary-button">
+              Explore My App
             </a>
           </div>
+
         </div>
       </section>
 
-       <section className="features" id="features">
+      <section className="features" id="features">
 
         <div className="section-title">
           <p>WHAT WE USE</p>
@@ -71,8 +76,13 @@ function HomePage() {
         <div className="feature-container">
 
           {filteredFeatures.length > 0 ? (
+
             filteredFeatures.map((feature) => (
-              <div className="feature-card" key={feature.title}>
+
+              <div
+                className="feature-card"
+                key={feature.title}
+              >
 
                 <div className="feature-icon">
                   ⚛
@@ -83,21 +93,28 @@ function HomePage() {
                 <p>{feature.description}</p>
 
               </div>
+
             ))
+
           ) : (
+
             <div className="no-results">
+
               <h3>No results found</h3>
 
               <p>
-                Try searching for React, Router, Components,
-                or State.
+                Try searching for React, Router,
+                Components, or State.
               </p>
+
             </div>
+
           )}
 
         </div>
 
       </section>
+
     </main>
   );
 }

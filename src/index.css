@@ -18,58 +18,110 @@ a {
   text-decoration: none;
 }
 
-button {
-  font-family: inherit;
-}
-
-/* =========================
-   NAVBAR
-========================= */
-
 .navbar {
-  height: 70px;
-  padding: 0 8%;
-  background: #111827;
+  width: 100%;
+  min-height: 72px;
+  padding: 12px 6%;
+  background: #172554;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 25px;
+
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
-  color: white;
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: 1px;
+  color: white !important;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-links {
   display: flex;
-  gap: 30px;
+  align-items: center;
+  gap: 25px;
 }
 
 .nav-links a {
-  color: #d1d5db;
-  font-size: 15px;
-  font-weight: 600;
-  transition: 0.3s;
+  color: white !important;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
+  color: #93c5fd !important;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-box input {
+  width: 200px;
+  height: 40px;
+
+  padding: 0 14px;
+
+  border: 2px solid #93c5fd;
+  border-radius: 6px;
+
+  background: white;
+  color: #172033;
+
+  font-size: 14px;
+  outline: none;
+}
+
+.search-box input::placeholder {
+  color: #64748b;
+}
+
+.search-box input:focus {
+  border-color: #60a5fa;
+}
+
+.search-box button {
+  height: 40px;
+
+  padding: 0 15px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #3b82f6;
   color: white;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background: #60a5fa;
 }
 
 .hero {
-  min-height: 600px;
+  min-height: 580px;
   padding: 100px 8%;
   display: flex;
   align-items: center;
   background: linear-gradient(
     135deg,
-    #111827 0%,
-    #1e3a8a 100%
+    #172554,
+    #1d4ed8
   );
   color: white;
 }
@@ -93,7 +145,7 @@ button {
 }
 
 .hero h1 span {
-  color: #60a5fa;
+  color: #93c5fd;
 }
 
 .hero-description {
@@ -108,14 +160,15 @@ button {
   display: inline-block;
   padding: 14px 25px;
   border-radius: 8px;
-  background: white;
-  color: #1e3a8a;
+  background: #ffffff;
+  color: #1d4ed8;
   font-weight: 700;
   transition: 0.3s;
 }
 
 .primary-button:hover {
   transform: translateY(-2px);
+  background: #dbeafe;
 }
 
 .features {
@@ -125,7 +178,7 @@ button {
 
 .section-title {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 45px;
 }
 
 .section-title p {
@@ -140,6 +193,12 @@ button {
   font-size: 36px;
 }
 
+.search-result {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #475569;
+}
+
 .feature-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -151,7 +210,7 @@ button {
 .feature-card {
   padding: 35px 30px;
   background: #f8fafc;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
   transition: 0.3s;
 }
@@ -184,13 +243,19 @@ button {
   line-height: 1.6;
 }
 
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+}
+
 .about-hero {
   padding: 100px 8%;
   text-align: center;
   background: linear-gradient(
     135deg,
-    #111827,
-    #1e3a8a
+    #172554,
+    #1d4ed8
   );
   color: white;
 }
@@ -218,7 +283,7 @@ button {
   padding: 35px;
   background: white;
   border-radius: 14px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e2e8f0;
 }
 
 .about-card h2 {
@@ -265,7 +330,7 @@ button {
 }
 
 .footer {
-  background: #111827;
+  background: #172554;
   color: white;
   padding: 35px 8%;
 }
@@ -283,7 +348,7 @@ button {
 }
 
 .footer p {
-  color: #9ca3af;
+  color: #bfdbfe;
   font-size: 14px;
 }
 
@@ -293,52 +358,27 @@ button {
 }
 
 @media (max-width: 800px) {
-  .hero h1 {
-    font-size: 45px;
-  }
 
-  .feature-container {
-    grid-template-columns: 1fr;
-  }
-
-  .about-content {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-  }
-
-  .footer-info {
-    text-align: center;
-  }
-}
-
-@media (max-width: 500px) {
   .navbar {
-    padding: 0 5%;
+    flex-wrap: wrap;
+    padding: 15px 5%;
   }
 
-  .hero {
-    padding: 80px 5%;
+  .logo {
+    order: 1;
   }
 
-  .hero h1 {
-    font-size: 38px;
+  .nav-links {
+    order: 2;
   }
 
-  .features,
-  .counter-section {
-    padding: 60px 5%;
+  .search-box {
+    order: 3;
+    width: 100%;
   }
 
-  .counter-card {
-    padding: 35px 20px;
-  }
-
-  .about-content {
-    padding: 60px 5%;
+  .search-box input {
+    flex: 1;
+    width: auto;
   }
 }
