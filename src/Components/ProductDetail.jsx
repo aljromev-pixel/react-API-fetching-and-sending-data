@@ -1,54 +1,10 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-function ProductDetail() {
-  const { id } = useParams();
-
-  const products = [
-    {
-      id: 1,
-      name: "React Wireless Mouse",
-      price: 1299,
-      description: "A reliable wireless mouse for everyday computer use.",
-    },
-    {
-      id: 2,
-      name: "React 60HE Mechanical Keyboard",
-      price: 1599,
-      description: "A responsive mechanical keyboard designed for comfortable typing.",
-    },
-    {
-      id: 3,
-      name: "Ethernet Cable Cat6 ver",
-      price: 549,
-      description: "A Cat6 Ethernet cable for fast and reliable network connections.",
-    },
-  ];
-
-  const product = products.find(
-    (product) => product.id === Number(id)
-  );
-
-  if (!product) {
-    return (
-      <main>
-        <h2>Product not found</h2>
-        <Link to="/">Back to Home</Link>
-      </main>
-    );
-  }
-
-  return (
-    <main className="product-detail">
-      <h1>{product.name}</h1>
-
-      <p>Price: ₱{product.price}</p>
-
-      <p>{product.description}</p>
-
-      <Link to="/">← Back to Products</Link>
-    </main>
-  );
+export default function ProductDetail() {
+  const { id } = useParams(); const [product, setProduct] = useState(null); const [error, setError] = useState("");
+  useEffect(() => { fetch(`https://fakestoreapi.com/products/${id}`).then((response) => { if (!response.ok) throw new Error(); return response.json(); }).then(setProduct).catch(() => setError("Product not found.")); }, [id]);
+  if (error) return <section className="detail-page content-wrap"><h1>{error}</h1><Link to="/">← Back to catalog</Link></section>;
+  if (!product) return <p className="status-message content-wrap">Loading product...</p>;
+  return <section className="detail-page content-wrap"><Link className="back-link" to="/">← Back to catalog</Link><div className="detail-card"><div className="detail-image"><img src={product.image} alt={product.title} /></div><div><p className="eyebrow">{product.category}</p><h1>{product.title}</h1><p className="detail-price">₱{product.price}</p><p className="detail-description">{product.description}</p></div></div></section>;
 }
-
-export default ProductDetail;

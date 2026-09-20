@@ -4,34 +4,5 @@ import styles from "./ProductCard.module.css";
 
 export default function ProductCard({ product }) {
   const [quantity, setQuantity] = useState(1);
-
-  const decreaseQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const increaseQuantity = () => {
-    setQuantity(quantity + 1);
-  };
-
-  return (
-    <div className={styles.card}>
-      <h3>{product.name}</h3>
-
-      <p>₱{product.price}</p>
-
-      <div className={styles.quantity}>
-        <button onClick={decreaseQuantity}>−</button>
-
-        <span>{quantity}</span>
-
-        <button onClick={increaseQuantity}>+</button>
-      </div>
-
-      <Link to={`/products/${product.id}`}>
-        View Details
-      </Link>
-    </div>
-  );
+  return <article className={styles.card}><img className={styles.image} src={product.image} alt="" /><div className={styles.content}><p className={styles.category}>{product.category}</p><h3>{product.title}</h3><p className={styles.price}>₱{product.price}</p><div className={styles.footer}><div className={styles.quantity} aria-label={`Quantity for ${product.title}`}><button onClick={() => setQuantity((value) => Math.max(1, value - 1))} aria-label="Decrease quantity">−</button><span>{quantity}</span><button onClick={() => setQuantity((value) => value + 1)} aria-label="Increase quantity">+</button></div><Link to={`/products/${product.id}`}>Details <span aria-hidden="true">→</span></Link></div></div></article>;
 }
