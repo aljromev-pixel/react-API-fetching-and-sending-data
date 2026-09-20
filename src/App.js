@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <nav className="navbar">
-        <div className="nav-logo">My Website</div>
+        <img src="/logo.svg" alt="React Logo" className="react-logo" />
 
         <div className="nav-links">
           <a href="#home">Home</a>

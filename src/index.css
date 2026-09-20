@@ -37,11 +37,10 @@ a {
 }
 
 .logo {
-  color: white !important;
+  color: #60a5fa !important;
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
-  white-space: nowrap;
 }
 
 .nav-links {

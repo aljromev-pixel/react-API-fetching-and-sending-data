@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import logo from "./logo.svg";
 
 import HomePage from "./Homepage";
 import AboutPage from "./Aboutpage";
@@ -14,9 +15,13 @@ function App() {
 
         <header className="navbar">
 
-          <div className="logo">
-            CCS-112
-          </div>
+          <Link to="/" className="logo-link">
+            <img
+              src={logo}
+              alt="React Logo"
+              className="react-logo"
+            />
+          </Link>
 
           <nav className="nav-links">
             <Link to="/">Home</Link>
@@ -39,7 +44,6 @@ function App() {
         </header>
 
         <Routes>
-
           <Route
             path="/"
             element={<HomePage search={search} />}
@@ -49,7 +53,6 @@ function App() {
             path="/about"
             element={<AboutPage />}
           />
-
         </Routes>
 
         <Footer />
