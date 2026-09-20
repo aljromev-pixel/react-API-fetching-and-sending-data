@@ -3,12 +3,10 @@ import React from "react";
 function Footer() {
   return (
     <footer className="footer">
-      
       <div className="footer-content">
-
-         <div className="footer-brand">
+        <div className="footer-brand">
           <h2>CCS-112</h2>
-          <p>React Applcaition</p>
+          <p>React Application</p>
         </div>
 
         <div className="footer-info">

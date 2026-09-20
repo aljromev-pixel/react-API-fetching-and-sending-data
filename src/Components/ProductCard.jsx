@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./ProductCard.module.css";
 
 export default function ProductCard({ product }) {
@@ -27,6 +28,10 @@ export default function ProductCard({ product }) {
 
         <button onClick={increaseQuantity}>+</button>
       </div>
+
+      <Link to={`/products/${product.id}`}>
+        View Details
+      </Link>
     </div>
   );
 }

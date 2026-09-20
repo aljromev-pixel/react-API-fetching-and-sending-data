@@ -4,6 +4,7 @@ import logo from "./logo.svg";
 
 import HomePage from "./HomePage";
 import AboutPage from "./AboutPage";
+import ProductDetail from "./Components/ProductDetail";
 import Footer from "./Footer";
 
 function App() {
@@ -53,6 +54,11 @@ function App() {
           <Route
             path="/about"
             element={<AboutPage />}
+          />
+
+          <Route
+            path="/products/:id"
+            element={<ProductDetail />}
           />
         </Routes>
 
